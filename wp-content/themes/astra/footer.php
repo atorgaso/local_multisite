@@ -34,3 +34,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 	</body>
 </html>
+
+<?php
+$blog_id = get_current_blog_id();
+$custom_footer = get_template_directory() . "/templates/site{$blog_id}/footer-site{$blog_id}.php";
+
+if ( file_exists( $custom_footer ) ) {
+    include( $custom_footer );
+} else {
+    ?>
+    <footer class="default-footer">
+        <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+    </footer>
+    <?php
+}
+?>

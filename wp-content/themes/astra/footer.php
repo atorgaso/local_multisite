@@ -32,6 +32,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	astra_body_bottom();
 	wp_footer();
 ?>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const buttons = document.querySelectorAll(".toggle-tickets-btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", function() {
+      const container = this.nextElementSibling;
+      const isVisible = container.style.display === "block";
+      
+      container.style.display = isVisible ? "none" : "block";
+      this.textContent = isVisible ? "View Tickets" : "Hide Tickets";
+      this.classList.toggle("active", !isVisible);
+    });
+  });
+});
+</script>
+
+
+</script>
 	</body>
 </html>
 
@@ -41,11 +60,8 @@ $custom_footer = get_template_directory() . "/templates/site{$blog_id}/footer-si
 
 if ( file_exists( $custom_footer ) ) {
     include( $custom_footer );
-} else {
-    ?>
-    <footer class="default-footer">
-        <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-    </footer>
-    <?php
 }
+// если файла нет, просто не добавляем второй футер — Astra сама выведет свой
 ?>
+
+

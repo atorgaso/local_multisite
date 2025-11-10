@@ -26,8 +26,16 @@ function astra_child_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'astra_child_enqueue_scripts');
 
+add_action('wp_head', function() {
+    if (is_page()) {
+        global $template;
+        echo '<!-- TEMPLATE USED: ' . $template . ' -->';
+    }
+});
 
-
+add_action('after_setup_theme', function() {
+    add_image_size('category-thumb', 300, 200, true); // true = обрезка по центру
+});
 
 
 

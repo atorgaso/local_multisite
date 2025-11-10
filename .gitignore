@@ -1,0 +1,22 @@
+# WordPress core
+wp-config.php
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+
+# Плагины, которые можно восстановить
+wp-content/plugins/google-listings-and-ads/
+wp-content/plugins/jetpack/
+wp-content/mu-plugins/
+
+# Логи WooCommerce
+wp-content/uploads/sites/*/wc-logs/
+
+# Jetpack WAF
+wp-content/jetpack-waf/
+
+# Системные файлы
+*.log
+*.sql
+.DS_Store
+Thumbs.db

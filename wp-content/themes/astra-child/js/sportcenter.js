@@ -1,8 +1,4 @@
 window.addEventListener("load", function() {
-    console.log("✅ sportcenter.js loaded (window.onload)");
-
-    const welcomeBox = document.createElement("div");
-    welcomeBox.textContent = "Welcome to the Sport Center! Get ready to move and have fun!";
 
     welcomeBox.style.position = "fixed";
     welcomeBox.style.bottom = "30px";
@@ -24,9 +20,5 @@ window.addEventListener("load", function() {
         setTimeout(() => welcomeBox.remove(), 1000);
     }, 5000);
 });
-
-console.log("✅ sportcenter.js действительно выполняется!");
-alert("JS is running!");
-
 
 

@@ -7,59 +7,19 @@
  Version: 1.0.0
 */
 
-.sportcenter-container h1 {
-  font-size: 2.5rem;
-  color: #1e88e5;
+/* === GLOBAL STYLES === */
+body,
+.site,
+.site-content,
+.content-area {
+    background-color: #121212 !important;
+    color: #e0e0e0;
 }
 
-.category-block {
-  background: #f9f9f9;
-  padding: 30px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 1100px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.category-block h2 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-}
-
-.sportcenter-categories-left ul li {
-  cursor: pointer;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  background: #f1f1f1;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-.sportcenter-categories-left ul li:hover,
-.sportcenter-categories-left ul li.active {
-  background: #1e88e5;
-  color: #fff;
-}
-
-.sportcenter-description {
-  max-width: 1000px;
-  margin: 0 auto 60px auto;
-  text-align: center;
-  padding: 0 20px;
-}
-
-/* Фон всей страницы */
-body, .site, .site-content, .content-area {
-    background-color: #121212 !important; /* темный фон страницы */
-    color: #e0e0e0; /* светлый текст для контраста */
-}
-
-/* Заголовки */
 h1, h2, h3, h4, h5, h6 {
-    color: #ff9800; /* яркие заголовки */
+    color: #ff9800;
 }
 
-/* Ссылки */
 a {
     color: #1e88e5;
 }
@@ -68,72 +28,69 @@ a:hover {
     color: #90caf9;
 }
 
-/* Фон всей страницы */
-body {
-  background-color: #121212; /* тёмный фон страницы */
-  color: #e0e0e0; /* светлый текст */
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
+/* === SPORTCENTER CONTAINERS & DESCRIPTION === */
+.sportcenter-container h1 {
+    font-size: 2.5rem;
+    color: #1e88e5;
 }
 
-/* Контейнер главного блока */
 .sportcenter-main {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background: transparent; /* чтобы фон body был виден */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: transparent;
 }
 
-/* Блок описания */
 .sportcenter-description {
-  max-width: 1000px;
-  margin: 60px auto;
-  text-align: center;
-  padding: 0 20px;
+    max-width: 1000px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .sportcenter-description h2 {
-  color: #ff9800; /* яркий заголовок на тёмном фоне */
+    color: #ff9800;
 }
 
 .sportcenter-description p {
-  color: #e0e0e0;
-  font-size: 1.1rem;
-  margin-top: 20px;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    margin-top: 20px;
 }
 
-/* Контейнер категорий */
-.sportcenter-categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+/* === CATEGORIES BLOCKS === */
+#categories {
+    display: flex;           /* выстраиваем блоки в ряд */
+    flex-wrap: wrap;         /* если не влезают — переносятся */
+    justify-content: center; /* центрируем ряды по горизонтали */
+    gap: 20px;               /* расстояние между блоками */
+    margin: 40px 0;
 }
 
 .category-block {
-  background: #1b1b1b;
-  border-radius: 16px;
-  padding: 20px;
-  max-width: 320px;
-  text-align: center;
+    background: #1b1b1b;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 320px;
+    text-align: center;
 }
 
 .category-block h2 {
-  color: #ff9800;
+    color: #ff9800;
 }
 
 .category-block p {
-  color: #ccc;
+    color: #ccc;
 }
 
+.category-block img,
 .category-thumb {
-    width: 300px !important;
+    width: 100%;
     height: 200px !important;
     object-fit: cover !important;
     display: block;
@@ -141,284 +98,821 @@ body {
     border-radius: 8px;
 }
 
-.category-block img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
+/* Чтобы карточки не прыгали при hover */
+.category-block:hover {
+    transform: none !important;  /* отключает движение */
+    transition: none !important;
 }
 
-.category-block {
-  background: #1b1b1b;
-  border-radius: 16px;
-  padding: 20px;
-  max-width: 320px;
-  text-align: center;
-}
-
+/* === LOGO === */
 .zenfit-logo {
-  font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
-  font-size: 2rem;
-  letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
+
 .zenfit-logo .zen {
-  font-weight: 400;
-  color: #fff;
+    font-weight: 400;
+    color: #fff;
 }
+
 .zenfit-logo .fit {
-  font-weight: 800;
-  color: #ffa500;
+    font-weight: 800;
+    color: #ffa500;
 }
 
-/* === ZENFIT Header Dark Style for Astra === */
-
-/* Тёмный фон хедера (десктоп и мобильный) */
+/* === HEADER STYLES === */
 .ast-primary-header-bar,
 .main-header-bar,
 .ast-main-header-bar-wrap,
 .ast-mobile-header-wrap {
-  background-color: #111111 !important;
+    background-color: #111111 !important;
 }
 
-/* Белый текст и ссылки в хедере */
 .ast-primary-header-bar a,
 .ast-main-header-bar-wrap a,
 .ast-mobile-header-wrap a,
 .main-header-bar a,
 .ast-site-identity .site-title a,
 .ast-site-identity .site-description {
-  color: #ffffff !important;
-  text-decoration: none;
+    color: #ffffff !important;
+    text-decoration: none;
 }
 
-/* Цвет при наведении на ссылки */
 .ast-primary-header-bar a:hover,
 .ast-main-header-bar-wrap a:hover,
 .ast-mobile-header-wrap a:hover,
 .main-header-bar a:hover {
-  color: #ffa500 !important; /* оранжевый акцент */
+    color: #ffa500 !important;
 }
 
-/* Дополнительно — меню */
 .ast-header-break-point .ast-mobile-header-wrap,
 .ast-builder-menu-1 .menu-link,
 .ast-builder-menu-1 .ast-menu-toggle {
-  color: #ffffff !important;
+    color: #ffffff !important;
 }
 
-/* Для иконки меню (бургер и крестик) */
 .ast-button-wrap svg {
-  fill: #ffffff !important;
+    fill: #ffffff !important;
 }
 
-/* Чтобы меню не имело белого фона */
 .ast-builder-menu-mobile,
 .ast-mobile-header-content {
-  background-color: #111111 !important;
+    background-color: #111111 !important;
 }
 
-/* === FOOTER FIX: ZENFIT STYLE === */
-
-/* Основной контейнер футера Astra */
+/* === FOOTER STYLES === */
 .site-footer,
 .site-below-footer-wrap,
 .ast-builder-grid-row-container-inner,
 .site-below-footer-inner-wrap {
-  background-color: #111 !important; /* Тёмный фон */
-  color: #fff !important;            /* Белый текст */
+    background-color: #111 !important;
+    color: #fff !important;
 }
 
-/* Текст и ссылки */
 .site-footer a,
 .site-footer p,
 .site-footer .ast-footer-copyright {
-  color: #fff !important;
+    color: #fff !important;
 }
 
-/* Эффект при наведении */
 .site-footer a:hover {
-  color: #ccc !important;
+    color: #ccc !important;
 }
 
-/* Центрирование и немного воздуха */
 .ast-footer-copyright {
-  text-align: center;
-  padding: 20px 0;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.products .product {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* === PRODUCTS GRID === */
+.woocommerce ul.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.products .product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* Скрываем рейтинг WooCommerce */
-.woocommerce .star-rating,
-.woocommerce .woocommerce-product-rating {
-  display: none !important;
-}
-
-/* Скрываем категорию под названием товара */
-.woocommerce-loop-category__title,
-.woocommerce-loop-product__link .posted_in,
-.product_meta .posted_in {
-  display: none !important;
-}
-
-/* Скрыть категорию под товаром (Astra theme) */
-.ast-woo-product-category {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Кнопка */
-.toggle-tickets-btn {
-  background-color: #0a0a0a;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.toggle-tickets-btn:hover {
-  background-color: #222;
-}
-
-/* Плавное появление блока */
-.tickets-container {
-  overflow: hidden;
-  transition: all 0.5s ease;
-  margin-top: 15px;
-}
-
-/* === ZENFIT PRODUCT CARD STYLE === */
 .woocommerce ul.products li.product {
-  background: #111; /* темный фон под стиль header */
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: #111;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .woocommerce ul.products li.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* Фото */
 .woocommerce ul.products li.product img {
-  border-radius: 12px;
-  max-height: 220px;
-  object-fit: cover;
-  margin-bottom: 15px;
+    border-radius: 12px;
+    max-height: 220px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
-/* Название */
 .woocommerce ul.products li.product .woocommerce-loop-product__title {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 10px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-/* Цена */
 .woocommerce ul.products li.product .price {
-  color: #ffa500;
-  font-weight: 600;
-  font-size: 16px;
+    color: #ffa500;
+    font-weight: 600;
+    font-size: 16px;
 }
 
-/* Кнопка Add to cart */
 .woocommerce ul.products li.product .button {
-  background: #ffa500;
-  color: #111;
-  border-radius: 50px;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 13px;
-  transition: all 0.3s ease;
+    background: #ffa500;
+    color: #111;
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    transition: all 0.3s ease;
 }
 
 .woocommerce ul.products li.product .button:hover {
-  background: #fff;
-  color: #111;
+    background: #fff;
+    color: #111;
 }
 
-/* Убираем рейтинг и категорию */
 .woocommerce ul.products li.product .star-rating,
 .woocommerce ul.products li.product .ast-woo-product-category {
-  display: none !important;
+    display: none !important;
 }
 
-/* Выровнять по центру */
-.woocommerce ul.products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+/* === CART ICON & MENU COUNT === */
+.menu-item a {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
 }
 
-/* === ZENFIT TOGGLE BUTTON === */
-.toggle-tickets-btn {
-  display: inline-block;
-  background-color: #111; /* тёмная по умолчанию */
-  color: #fff;
-  border: 2px solid #ffa500; /* оранжевая рамка */
-  border-radius: 50px;
-  padding: 12px 28px;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 15px;
+.menu-item a .cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff8000;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    vertical-align: text-top;
 }
 
-/* Hover — оранжевая */
-.toggle-tickets-btn:hover {
-  background-color: #ffa500;
-  color: #111;
-  border-color: #ffa500;
+.menu-item a:focus,
+.menu-item a:active,
+.site-header a:focus,
+.site-header a:active {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-/* Активная — тоже оранжевая */
-.toggle-tickets-btn.active {
-  background-color: #ffa500;
-  color: #111;
-  border-color: #ffa500;
-  transform: scale(1.03);
+.ahfb-svg-iconset,
+.ahfb-svg-iconset .ast-icon.icon-bag {
+    display: none !important;
 }
 
-/* Убираем все синие эффекты фокуса */
-.toggle-tickets-btn:focus,
-.toggle-tickets-btn:focus-visible,
-.toggle-tickets-btn:active {
-  outline: none !important;
-  box-shadow: none !important;
-  border: 2px solid #ffa500 !important;
+/* === MY ACCOUNT === */
+.woocommerce-account .woocommerce {
+    display: flex;
+    gap: 30px;
 }
 
-/* Для Firefox */
-.toggle-tickets-btn::-moz-focus-inner {
-  border: 0 !important;
+.woocommerce-account .woocommerce-MyAccount-navigation {
+    width: 260px;
+    background: #111;
+    border-radius: 12px;
+    padding: 20px;
 }
 
+.woocommerce-account .woocommerce-MyAccount-content {
+    flex: 1;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.woocommerce-MyAccount-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.woocommerce-MyAccount-navigation li {
+    margin-bottom: 10px;
+}
+
+.woocommerce-MyAccount-navigation a { 
+    display: block;
+    padding: 12px 15px;
+    color: #ccc;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.woocommerce-MyAccount-navigation li.is-active a {
+    background: #ff6600;
+    color: #fff;
+}
+
+.woocommerce-MyAccount-navigation a:hover {
+    background: #fe7a00;
+    color: #fff;
+}
+
+.woocommerce-MyAccount-content p {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.woocommerce-MyAccount-content a {
+    color: #ff6600;
+}
+
+.woocommerce-MyAccount-content a:hover {
+    color: #ff6600;
+}
+
+/* === ASTRA SHOP SUMMARY (CENTER CONTENT) === */
+.astra-shop-summary-wrap {
+    text-align: center;
+}
+
+.astra-shop-summary-wrap h2.woocommerce-loop-product__title {
+    margin: 10px 0 5px;
+}
+
+.astra-shop-summary-wrap .review-rating {
+    margin: 5px 0;
+}
+
+.astra-shop-summary-wrap .price {
+    display: block;
+    margin: 5px 0;
+}
+
+.astra-shop-summary-wrap .button,
+.astra-shop-summary-wrap .added_to_cart {
+    display: inline-block;
+    margin: 5px 3px;
+}
+
+/* === Tickets Container — отступ сверху, чтобы не перекрывать Hide Tickets === */
+.tickets-container {
+    margin-top: 60px; /* подстрой под размер кнопки, например 60px */
+}
+
+/* Cart totals — цвета текста */
+.cart_totals,
+.cart_totals th,
+.cart_totals td,
+.cart_totals p,
+.cart_totals a.button {
+    color: #e0e0e0 !important; /* текст */
+    background-color: #1b1b1b !important; /* фон таблицы */
+}
+
+/* Заголовок Cart totals */
+.cart_totals h2 {
+    color: #ff9800 !important;
+}
+
+/* Ссылки Proceed to Checkout */
+.cart_totals .checkout-button {
+    background-color: #ffa500 !important;
+    color: #111 !important;
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cart_totals .checkout-button:hover {
+    background-color: #fff !important;
+    color: #111 !important;
+}
+
+/* Оранжевая иконка в сообщениях WooCommerce Info */
+.woocommerce-info::before,
+.woocommerce-info i,
+.woocommerce-info svg {
+    color: #ff9800 !important;  /* для иконок font-awesome */
+    fill: #ff9800 !important;   /* для svg */
+}
+
+/* Сделать текст формы WooCommerce белым */
+.woocommerce .woocommerce-form input,
+.woocommerce .woocommerce-form label,
+.woocommerce .woocommerce-form p,
+.woocommerce .woocommerce-form span {
+    color: #ffffff !important;
+}
+
+/* Ссылка Lost your password? оранжевая */
+.woocommerce .woocommerce-LostPassword a {
+    color: #ff9800 !important;
+}
+
+.woocommerce .woocommerce-LostPassword a:hover {
+    color: #ffa500 !important; /* можно чуть светлее при наведении */
+}
+
+/* Сделать текст формы редактирования аккаунта белым */
+.woocommerce-MyAccount-content label,
+.woocommerce-MyAccount-content input,
+.woocommerce-MyAccount-content span,
+.woocommerce-MyAccount-content fieldset legend,
+.woocommerce-MyAccount-content em {
+    color: #ffffff !important;
+}
+
+/* Поля ввода */
+.woocommerce-MyAccount-content input.input-text {
+    background-color: #222; /* темный фон для полей */
+    border: 1px solid #555; /* граница полей */
+    color: #fff; /* текст внутри полей */
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Добавить отступы между полями и блоками */
+.woocommerce-MyAccount-content p {
+    margin-bottom: 20px;
+}
+
+/* Поля рядом (first/last) */
+.woocommerce-MyAccount-content .form-row-first,
+.woocommerce-MyAccount-content .form-row-last {
+    width: 48%;
+    display: inline-block;
+}
+
+.woocommerce-MyAccount-content .form-row-first {
+    margin-right: 4%;
+}
+
+.woocommerce-MyAccount-content .form-row-last {
+    margin-left: 0;
+}
+
+/* Кнопка сохранить */
+.woocommerce-MyAccount-content .woocommerce-Button.button {
+    background-color: #ff9800; /* оранжевая кнопка */
+    color: #111; /* текст на кнопке */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover для кнопки */
+.woocommerce-MyAccount-content .woocommerce-Button.button:hover {
+    background-color: #ffa500;
+}
+
+/* Скрыть лишние отступы у fieldset */
+.woocommerce-MyAccount-content fieldset {
+    border: 1px solid #555;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Кнопки показа пароля */
+.woocommerce-MyAccount-content .show-password-input {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Основной текст блока My Account */
+.woocommerce-MyAccount-content,
+.woocommerce-MyAccount-content p,
+.woocommerce-MyAccount-content address {
+    color: #ffffff; /* белый текст */
+    font-size: 14px;
+}
+
+/* Контейнер колонок адресов */
+.woocommerce-MyAccount-content .woocommerce-Addresses {
+    display: flex;
+    gap: 20px; /* расстояние между колонками */
+    flex-wrap: wrap;
+}
+
+/* Каждая колонка адреса */
+.woocommerce-MyAccount-content .woocommerce-Address {
+    background-color: #222; /* темный фон */
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1 1 45%; /* адаптивная ширина колонок */
+    box-sizing: border-box;
+    min-width: 250px;
+}
+
+/* Заголовок и ссылка редактирования */
+.woocommerce-MyAccount-content .woocommerce-Address-title h2 {
+    color: #000; /* белый заголовок */
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Ссылка "Add Billing/Shipping address" */
+.woocommerce-MyAccount-content .woocommerce-Address-title .edit {
+    color: #ff9800; /* оранжевая ссылка */
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.woocommerce-MyAccount-content .woocommerce-Address-title .edit:hover {
+    text-decoration: underline;
+}
+
+/* Адрес внутри блока */
+.woocommerce-MyAccount-content .woocommerce-Address address {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    line-height: 1.5;
+    color: #ccc; /* чуть светлее для адреса */
+}
+
+/* Блок уведомления */
+.woocommerce-info {
+    background-color: #333;  /* темный фон */
+    color: #ffffff;          /* белый текст */
+    padding: 15px 15px;      /* убираем лишние отступы сверху/снизу */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: none;            /* убираем белую полосу */
+}
+
+/* Кнопка внутри уведомления (как в меню) */
+.woocommerce-info a.button.wc-forward {
+    background-color: #ff6600;  /* сплошной оранжевый фон */
+    color: #ffffff;             /* белый текст */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 400;
+    border: none;               /* убираем контур */
+    transition: background 0.3s ease;
+}
+
+.woocommerce-info a.button.wc-forward:hover {
+    background-color: #ff6600;  /* чуть темнее при наведении */
+}
+
+/* ===== Cart totals: заголовки оранжевые, убираем белый фон ===== */
+.woocommerce-cart .cart_totals h2 {
+    color: #ff6600;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals > h2 {
+    color: #ff6600 !important;
+    background: transparent !important;
+}
+
+/* ===== Scroll Top Button ===== */
+#ast-scroll-top {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+#ast-scroll-top:hover {
+    background: #ff6600;
+}
+
+#ast-scroll-top svg {
+    fill: #fff;
+}
+
+/* ===== Cart remove icon (крестик) ===== */
+.woocommerce-cart .product-remove .remove svg path {
+    fill: #ffffff !important;
+}
+
+/* На всякий случай — контейнер крестика видимый */
+.woocommerce-cart .product-remove .remove {
+    display: inline-flex;
+    z-index: 10;
+}
+
+/* ===== Payment method icons (иконка оранжевая, текст без изменений) ===== */
+ul.wc_payment_methods.payment_methods.methods li .woocommerce-info svg {
+    fill: #ff6600;
+}
+
+/* ===== Login form adjustments ===== */
+.woocommerce-form-login input[type="text"],
+.woocommerce-form-login input[type="password"] {
+    background: #333; /* затемнённый фон для видимости текста */
+    color: #fff;
+}
+
+.woocommerce-form-login a {
+    color: #ff6600; /* Lost your password оранжевый */
+}
+
+/* ===== Account forms adjustments ===== */
+.woocommerce-MyAccount-content input[type="text"],
+.woocommerce-MyAccount-content input[type="email"],
+.woocommerce-MyAccount-content input[type="password"] {
+    background: #333; /* чтобы текст был виден */
+    color: #fff;
+}
+
+.woocommerce-MyAccount-content a.edit,
+.woocommerce-MyAccount-content a.button,
+.woocommerce-MyAccount-content .wc-forward {
+    background: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.woocommerce-MyAccount-content a.edit:hover,
+.woocommerce-MyAccount-content a.button:hover,
+.woocommerce-MyAccount-content .wc-forward:hover {
+    background: #e65c00;
+}
+
+/* ===== Info notices buttons ===== */
+.woocommerce-info a.button.wc-forward {
+    background: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.woocommerce-info a.button.wc-forward:hover {
+    background: #e65c00;
+}
+
+/* ===== Optional: убрать белую полосу у notices ===== */
+.woocommerce-info {
+    background: transparent;
+    border: none;
+    color: #fff; /* или оставляем текущий цвет текста */
+}
+
+/* Иконка в уведомлении Cart updated */
+.woocommerce-message::before,
+.woocommerce-message svg {
+    fill: #ff6600 !important; /* оранжевый цвет для иконки */
+    color: #ff6600 !important; /* на случай, если используется currentColor */
+}
+
+/* Сделать ссылку Undo оранжевым цветом */
+.woocommerce-message .restore-item {
+    color: #ff6600 !important; /* оранжевый */
+    text-decoration: underline; /* если хочешь подчеркнуть, как ссылка */
+}
+
+.woocommerce-message .restore-item:hover {
+    color: #cc5200 !important; /* чуть темнее при наведении для эффекта */
+}
+
+/* Модальные формы тренера — текст белый */
+.trainer-form,
+.trainer-form label,
+.trainer-form input,
+.trainer-form select,
+.trainer-form textarea,
+.trainer-form span,
+.trainer-form p {
+    color: #ffffff !important;  /* текст формы белый */
+}
+
+/* Поля ввода — фон темный, текст белый */
+.trainer-form input,
+.trainer-form select,
+.trainer-form textarea {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 1px solid #555;
+    padding: 8px 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Placeholder белый */
+.trainer-form ::placeholder {
+    color: #ccc !important;
+    opacity: 1; /* чтобы был виден */
+}
+
+/* Register button как View Tickets */
+.trainer-form .wpcf7-submit {
+    background-color: #ff9800 !important;  /* оранжевый фон */
+    color: #111 !important;                /* текст */
+    border-radius: 50px !important;        /* как View Tickets */
+    padding: 10px 20px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
+}
+
+/* Hover */
+.trainer-form .wpcf7-submit:hover,
+.trainer-form input.wpcf7-submit:hover {
+    background-color: #111 !important;
+    color: #ff9800 !important;
+}
+
+/* Отступ сверху формы, чтобы Full Name не прилипал к Close */
+.trainer-form form {
+    margin-top: 30px; /* регулируем расстояние между Close и полями */
+}
+
+/* Убираем лишние отступы между <p> в форме */
+.trainer-form form p {
+    margin-bottom: 10px; /* уменьшает расстояние между полями */
+}
+
+/* Можно слегка увеличить padding внутри полей для читаемости */
+.trainer-form input,
+.trainer-form select,
+.trainer-form textarea {
+    padding: 8px 10px; 
+}
+
+/* Отступ у первого поля, если нужно чуть больше пространства от Close */
+.trainer-form form p:first-of-type {
+    margin-top: 10px; 
+}
+
+/* ===== Дата в форме регистраций ===== */
+.trainer-form input[type="date"] {
+    color: #ff6600;          /* цвет текста даты */
+    background-color: #333;  /* фон поля */
+    border: 1px solid #555;  /* граница */
+    padding: 8px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Chrome, Safari, Edge: цвет стрелок календаря */
+.trainer-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(60%) sepia(90%) saturate(400%) hue-rotate(10deg) brightness(1);
+}
+
+/* Firefox: цвет стрелки календаря */
+.trainer-form input[type="date"]::-moz-focus-inner {
+    border: none;
+}
+
+/* Когда поле в фокусе */
+.trainer-form input[type="date"]:focus {
+    outline: 2px solid #ff6600; /* оранжевый контур при фокусе */
+    outline-offset: 2px;
+}
+
+/*
+.staff-registration-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.staff-registration-description {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.staff-registration-description h2 {
+    color: #ff9800;
+    font-size: 2.5rem;
+}
+
+.staff-registration-description p {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.staff-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.staff-category-block {
+    background: #1b1b1b;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 320px;
+    text-align: center;
+}
+
+.staff-category-block img,
+.category-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.staff-category-block h3 {
+    color: #ff9800;
+}
+
+.staff-category-block p {
+    color: #ccc;
+}
+
+.toggle-staff-form-btn {
+    background-color: #ffa500;
+    color: #111;
+    border-radius: 50px;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-staff-form-btn:hover {
+    background-color: #fff;
+    color: #111;
+}
+*/
+/* Модальные формы */
+/*
+.staff-form {
+    background-color: #222;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #fff;
+    position: relative;
+}
+*/
+/* Close button */
+/*
+.staff-form .close-form {
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+*/
+/* Contact Form 7 поля */
+/*
+.staff-form input,
+.staff-form select,
+.staff-form textarea {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.staff-form .wpcf7-submit {
+    background-color: #ffa500;
+    color: #111;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.staff-form .wpcf7-submit:hover {
+    background-color: #fff;
+    color: #111;
+}
+*/
 
 

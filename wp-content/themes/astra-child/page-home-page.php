@@ -102,6 +102,87 @@ get_header(); ?>
     </div>
 </div>
 
+<div class="sportcenter-description">
+  <h2>Trainer Sessions</h2>
+  <p>
+    Choose your preferred training type with our professional coaches.
+    We offer individual and group sessions for swimming, gym, or a combined triathlon preparation program.
+    Fill in the registration form after selecting a ticket.
+  </p>
+</div>
+
+<div class="trainer-tickets-row" style="display:flex; gap:20px; flex-wrap:wrap; margin-top:20px;">
+
+    <!-- Тренировка в бассейне -->
+    <div class="trainer-ticket" style="flex:1; min-width:250px; border:1px solid #ccc; padding:15px; border-radius:10px; text-align:center;">
+        <h3>Swimming Session</h3>
+        <p>Professional swimming training with our coach.</p>
+        <button class="register-btn" data-target="swimming-form">Register</button>
+    </div>
+
+    <!-- Тренировка в зале -->
+    <div class="trainer-ticket" style="flex:1; min-width:250px; border:1px solid #ccc; padding:15px; border-radius:10px; text-align:center;">
+        <h3>Gym Session</h3>
+        <p>Strength and conditioning training in our gym.</p>
+        <button class="register-btn" data-target="gym-form">Register</button>
+    </div>
+
+    <!-- Подготовка к триатлону -->
+    <div class="trainer-ticket" style="flex:1; min-width:250px; border:1px solid #ccc; padding:15px; border-radius:10px; text-align:center;">
+        <h3>Triathlon Prep</h3>
+        <p>Combined training in pool and gym for triathlon enthusiasts.</p>
+        <button class="register-btn" data-target="triathlon-form">Register</button>
+    </div>
+
+</div>
+
+<!-- Модальные формы регистрации (скрыты по умолчанию) -->
+<div id="swimming-form" class="trainer-form" style="display:none;">
+    <button class="close-form">× Close</button>
+    <?php echo do_shortcode('[contact-form-7 id="3dd14b7" title="Swimming Registration"]'); ?>
+</div>
+<div id="gym-form" class="trainer-form" style="display:none;">
+    <button class="close-form">× Close</button>
+    <?php echo do_shortcode('[contact-form-7 id="d0c9d5f" title="Gym Registration"]'); ?>
+</div>
+<div id="triathlon-form" class="trainer-form" style="display:none;">
+    <button class="close-form">× Close</button>
+    <?php echo do_shortcode('[contact-form-7 id="7847fdb" title="Triathlon Registration"]'); ?>
+</div>
+
+<script>
+let openForm = null; // Отслеживаем открытую форму
+
+// Открытие формы
+document.querySelectorAll('.register-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        const form = document.getElementById(targetId);
+
+        if (openForm && openForm !== form) {
+            openForm.style.display = 'none'; // Закрываем предыдущую форму
+        }
+
+        if(form){
+            form.style.display = 'block';
+            form.scrollIntoView({behavior: 'smooth'});
+            openForm = form; // Запоминаем открытую форму
+        }
+    });
+});
+
+// Закрытие формы
+document.querySelectorAll('.close-form').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const parent = btn.parentElement;
+        parent.style.display = 'none';
+        if(openForm === parent){
+            openForm = null; // Сбрасываем открытое окно
+        }
+    });
+});
+</script>
+
 
 </div>
 

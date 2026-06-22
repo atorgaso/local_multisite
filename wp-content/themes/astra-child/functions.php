@@ -180,7 +180,7 @@ function save_staff_registration($contact_form) {
 
     $new_staff = array(
         'post_title' => sanitize_text_field($data['full-name']),
-        'post_type' => 'staff_profiles', // Твой CPT
+        'post_type' => 'staff_profile', // Твой CPT
         'post_status' => 'publish'
     );
 
@@ -213,6 +213,7 @@ function save_staff_registration($contact_form) {
 }
 
 // DevOps practice branch
+
 
 
 

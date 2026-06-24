@@ -21,7 +21,7 @@ get_header(); ?>
   <div class="category-block">
     <?php 
     // Pool image
-    $pool_img_url = get_stylesheet_directory_uri() . '/images/pool.jpg';
+    $pool_img_url = get_stylesheet_directory_uri() . '/images/pool.png';
     $pool_attachment_id = attachment_url_to_postid($pool_img_url);
 
     // Выводим изображение фиксированного размера 'category-thumb' (300x200)
@@ -37,7 +37,7 @@ get_header(); ?>
     ?>
     
     <h2>Pool</h2>
-    <p>Relax and stay fit in our 25m temperature-controlled swimming pool.</p>
+    <p>Relax and stay fit in our 25m indoor swimming pool.</p>
 
     <!-- Кнопка -->
     <button class="toggle-tickets-btn">View Tickets</button>
@@ -51,7 +51,7 @@ get_header(); ?>
 <div class="category-block">
     <?php 
     // Gym image
-    $gym_img_url = get_stylesheet_directory_uri() . '/images/gym.jpeg';
+    $gym_img_url = get_stylesheet_directory_uri() . '/images/gym.png';
     $gym_attachment_id = attachment_url_to_postid($gym_img_url);
 
     if ($gym_attachment_id) {
@@ -78,7 +78,7 @@ get_header(); ?>
 <div class="category-block">
     <?php 
     // Pool + Gym image
-    $poolgym_img_url = get_stylesheet_directory_uri() . '/images/pool-gym.jpg';
+    $poolgym_img_url = get_stylesheet_directory_uri() . '/images/gympool.png';
     $poolgym_attachment_id = attachment_url_to_postid($poolgym_img_url);
 
     if ($poolgym_attachment_id) {

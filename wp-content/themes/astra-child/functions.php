@@ -120,7 +120,7 @@ function create_staff_profile_cpt() {
 }
 add_action('init', 'create_staff_profile_cpt');
 
-add_action('wpcf7_mail_sent', 'create_staff_profile_from_cf7');
+add_action('wpcf7_before_send_mail', 'create_staff_profile_from_cf7');
 
 function create_staff_profile_from_cf7($contact_form) {
     $submission = WPCF7_Submission::get_instance();
@@ -131,28 +131,39 @@ function create_staff_profile_from_cf7($contact_form) {
     // Проверяем, какая форма отправлена по ID
     $form_id = $contact_form->id();
     
-    if ($form_id == 3) { // ID формы плавания
-        $full_name = sanitize_text_field($data['swim-name']);
-        $email     = sanitize_email($data['swim-email']);
-        $phone     = sanitize_text_field($data['swim-phone']);
-        $shirt_size = sanitize_text_field($data['swim-shirt-size']); // если есть
-        $hoodie_size = sanitize_text_field($data['swim-hoodie-size']); // если есть
+    $form_fields = array(
+        124 => 'swim',
+        125 => 'gym',
+        126 => 'triathlon',
+    );
 
-        // Создаём новый Staff Profile
-        $post_id = wp_insert_post(array(
-            'post_title'  => $full_name,
-            'post_type'   => 'staff_profile',
-            'post_status' => 'publish',
-        ));
+    if (!isset($form_fields[$form_id])) {
+        return;
+    }
 
-        if ($post_id) {
-            // Заполняем ACF поля
-            update_field('full_name', $full_name, $post_id);
-            update_field('email', $email, $post_id);
-            update_field('phone', $phone, $post_id);
-            update_field('shirt_size', $shirt_size, $post_id);
-            update_field('hoodie_size', $hoodie_size, $post_id);
-        }
+    $field_prefix = $form_fields[$form_id];
+    $full_name = sanitize_text_field($data[$field_prefix . '-name'] ?? '');
+    $email     = sanitize_email($data[$field_prefix . '-email'] ?? '');
+    $phone     = sanitize_text_field($data[$field_prefix . '-phone'] ?? '');
+
+    if ($full_name === '') {
+        return;
+    }
+
+    $post_data = array(
+        'post_title'  => $full_name,
+        'post_type'   => 'staff_profile',
+        'post_status' => 'publish',
+    );
+
+    // Создаём новый Staff Profile
+    $post_id = wp_insert_post($post_data);
+
+    if ($post_id) {
+        // Заполняем ACF поля
+        update_field('full_name', $full_name, $post_id);
+        update_field('email', $email, $post_id);
+        update_field('phone', $phone, $post_id);
     }
 
     // Можно добавить elseif для gym, triathlon форм
@@ -166,10 +177,10 @@ function staff_registration_form_shortcode() {
 }
 add_shortcode('staff_registration', 'staff_registration_form_shortcode');
 
-add_action('wpcf7_mail_sent', 'save_staff_registration');
+add_action('wpcf7_before_send_mail', 'save_staff_registration');
 
 function save_staff_registration($contact_form) {
-    $title = $contact_form->title;
+    $title = $contact_form->title();
 
     if($title != 'Staff Registration') return; // Проверяем нужную форму
 
@@ -180,7 +191,7 @@ function save_staff_registration($contact_form) {
 
     $new_staff = array(
         'post_title' => sanitize_text_field($data['full-name']),
-        'post_type' => 'staff_profiles', // Твой CPT
+        'post_type' => 'staff_profile', // Твой CPT
         'post_status' => 'publish'
     );
 
@@ -212,6 +223,27 @@ function save_staff_registration($contact_form) {
     }
 }
 
+add_filter('wpcf7_skip_mail', 'astra_child_skip_local_registration_mail', 10, 2);
+function astra_child_skip_local_registration_mail($skip_mail, $contact_form) {
+    $host = (string) wp_parse_url(home_url(), PHP_URL_HOST);
+    $is_local = (
+        wp_get_environment_type() === 'local'
+        || in_array($host, array('localhost', '127.0.0.1', '::1'), true)
+        || preg_match('/\.local$/', $host)
+    );
+
+    if (!$is_local) {
+        return $skip_mail;
+    }
+
+    if (in_array((int) $contact_form->id(), array(124, 125, 126), true)) {
+        return true;
+    }
+
+    return $skip_mail;
+}
+
+// DevOps practice branch
 
 
 
